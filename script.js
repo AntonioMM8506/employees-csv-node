@@ -1,6 +1,7 @@
 //Antonio Maldonado
 //script.js
-//Modules
+
+//Module to read csv
 const fs = require("fs")
 
 //Args
@@ -31,9 +32,11 @@ fs.readFile(file[0], 'utf8', function(err, data) {
 	  //If the 5th parameter, the one about the field, is empty, just go ahead and 
 	  //displays the whole row according to the index, but if is not undefined, look
 	  //after the coincidence in the map.
-	result = maps[index[0]-1]
-	field[0]==undefined ? console.log(lines[index]): console.log(result[field[0]]);
+	result_all = maps[index[0]-1]
+	obj = {}
+	result_field = Object.assign({[field[0]]: result_all[field[0]]},obj)
+  	//Deploy data
+	field[0]==undefined ? console.log(result_all):console.log(result_field);
 
 })//End of readFile
-
 
